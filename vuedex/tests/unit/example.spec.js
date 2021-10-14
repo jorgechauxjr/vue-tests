@@ -1,14 +1,31 @@
-// import { mount } from '@vue/test-utils';
-//import App from '@/App.vue';
+import { mount } from '@vue/test-utils';
+import App from '@/App.vue';
 import { huevo, espinaca } from './jestTest';
 
-// const wrapper = mount(App)
+const wrapper = mount(App)
 
 // console.log(wrapper)
 
-// const vm = wrapper.vm
+//const vm = wrapper.vm
 
 //console.log("Data de vm === ", vm.$data)
+
+/**
+ * Find() Recibe string o un componente y regresa el primer elemento que encuentra con ese selector
+ * trigger() Recibe un string con el nombre del evento Lanza un evento del elemento que se seleccionó
+ */
+
+describe('Probar que se cambió la propiedad changeTest ', () => {
+
+  test('should click a button', () => {
+
+  const lastValue = wrapper.vm.changeTest
+
+  wrapper.find('button').trigger('click')
+  expect(wrapper.vm.changeTest).toBe(lastValue + 1)
+})
+
+})
 
 // =========================================================
 /*
